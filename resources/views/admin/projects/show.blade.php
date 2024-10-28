@@ -13,9 +13,9 @@
                     <p>
                         Description: {{ $project->description }}
                     </p>
-                    <p>
-                        Image: {{ $project->image }}
-                    </p>
+                    <a href="{{ $project->image }}">
+                        immagine
+                    </a>
                 </div>
             </div>
         </div>
