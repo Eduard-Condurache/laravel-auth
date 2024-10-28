@@ -13,9 +13,7 @@
                     <p>
                         Description: {{ $project->description }}
                     </p>
-                    <a href="{{ $project->image }}">
-                        immagine
-                    </a>
+                    <img src="{{ $project->image }}" alt="{{ $project->title }}">
                 </div>
             </div>
         </div>

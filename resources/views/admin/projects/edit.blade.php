@@ -22,12 +22,16 @@
                 <div class="mb-3">
                     <label 
                         for="title" 
-                        class="form-label">Titolo</label>
+                        class="form-label">
+                        <span class="text-danger">*</span>
+                        Titolo</label>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        class="form-control @error('title') is-invalid @enderror" 
                         id="title" name="title"
                         value="{{ old('title', $project->title) }}"
+                        minlength="3"
+                        maxlength="64"
                         placeholder="Inserisci il titolo..." 
                         required>
                   </div>
@@ -35,13 +39,17 @@
                   <div class="mb-3">
                     <label 
                         for="description" 
-                        class="form-label">Descrizione</label>
+                        class="form-label">
+                        <span class="text-danger">*</span>
+                        Descrizione</label>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        class="form-control @error('description') is-invalid @enderror" 
                         id="description" 
                         name="description"
-                        value="{{ old('title', $project->description) }}"
+                        value="{{ old('description', $project->description) }}"
+                        minlength="3"
+                        maxlength="4096"
                         placeholder="Inserisci la descrizone" 
                         required>
                   </div>
@@ -52,23 +60,29 @@
                         class="form-label">Immagine</label>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        class="form-control @error('image') is-invalid @enderror" 
                         id="image" 
                         name="image"
-                        value="{{ old('title', $project->image) }}" 
+                        value="{{ old('image', $project->image) }}"
+                        minlength="5"
+                        maxlength="2048" 
                         placeholder="Inserisci il link del immagine">
                   </div>
 
                   <div class="mb-3">
                     <label 
                         for="category" 
-                        class="form-label">Categoria</label>
+                        class="form-label">
+                        <span class="text-danger">*</span>
+                        Categoria</label>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        class="form-control @error('category') is-invalid @enderror" 
                         id="category" 
                         name="category"
-                        value="{{ old('title', $project->category) }}" 
+                        value="{{ old('category', $project->category) }}"
+                        minlength="2"
+                        maxlength="64" 
                         placeholder="Inserisci il link del immagine">
                   </div>
 

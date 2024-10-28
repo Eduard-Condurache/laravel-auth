@@ -6,6 +6,15 @@
     <div class="row">
         <div class="col">
 
+          <div class="d-flex align-items-center justify-content-between">
+            <h1 class="my-3">
+                Crea un nuovo progetto
+            </h1>
+            <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">
+                Torna ai progetti
+            </a>
+        </div>
+
             @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -17,26 +26,72 @@
             @endif
 
             <form action="{{ route('admin.projects.store') }}" method="POST">
-
                 @csrf
                 <div class="mb-3">
-                    <label for="title" class="form-label">Titolo</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo..." required>
+                    <label 
+                        for="title" 
+                        class="form-label">
+                        <span class="text-danger">*</span>
+                        Titolo</label>
+                    <input 
+                        type="text" 
+                        class="form-control @error('title') is-invalid @enderror" 
+                        id="title" name="title"
+                        value="{{ old('title') }}"
+                        minlength="3"
+                        maxlength="64"
+                        placeholder="Inserisci il titolo..." 
+                        required>
                   </div>
 
                   <div class="mb-3">
-                    <label for="description" class="form-label">Descrizione</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Inserisci la descrizone" required>
+                    <label 
+                        for="description" 
+                        class="form-label">
+                        <span class="text-danger">*</span>
+                        Descrizione</label>
+                    <input 
+                        type="text" 
+                        class="form-control @error('description') is-invalid @enderror" 
+                        id="description" 
+                        name="description"
+                        value="{{ old('description') }}"
+                        minlength="3"
+                        maxlength="4096"
+                        placeholder="Inserisci la descrizone" 
+                        required>
                   </div>
 
                   <div class="mb-3">
-                    <label for="image" class="form-label">Immagine</label>
-                    <input type="text" class="form-control" id="image" name="image" placeholder="Inserisci il link del immagine">
+                    <label 
+                        for="image" 
+                        class="form-label">Immagine</label>
+                    <input 
+                        type="text" 
+                        class="form-control @error('image') is-invalid @enderror" 
+                        id="image" 
+                        name="image"
+                        value="{{ old('image') }}"
+                        minlength="5"
+                        maxlength="2048"
+                        placeholder="Inserisci il link del immagine">
                   </div>
 
                   <div class="mb-3">
-                    <label for="category" class="form-label">Categoria</label>
-                    <input type="text" class="form-control" id="category" name="category" placeholder="Inserisci il link del immagine">
+                    <label 
+                        for="category" 
+                        class="form-label">
+                        <span class="text-danger">*</span>
+                        Categoria</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="category" 
+                        name="category"
+                        value="{{ old('category') }}"
+                        minlength="2"
+                        maxlength="64"
+                        placeholder="Inserisci il link del immagine">
                   </div>
 
                   <div>

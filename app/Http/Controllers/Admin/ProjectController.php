@@ -36,7 +36,7 @@ class ProjectController extends Controller
         $request->validate([
             'title' => 'required|min:3|max:64',
             'description' => 'required|min:3|max:4096',
-            'image' => 'nullable|max:2048|url',
+            'image' => 'nullable|min:5|max:2048|url',
             'category' => 'required|min:2|max:64'
         ]);
 
