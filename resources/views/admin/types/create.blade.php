@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Projects')
+@section('page-title', 'Crea il tipo')
 
 @section('main-content')
     <div class="row">
@@ -8,10 +8,10 @@
 
           <div class="d-flex align-items-center justify-content-between">
             <h1 class="my-3">
-                Crea un nuovo progetto
+                Crea un nuova tipologia di progetto
             </h1>
-            <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">
-                Torna ai progetti
+            <a href="{{ route('admin.types.index') }}" class="btn btn-primary">
+                Torna alla pagina principale
             </a>
         </div>
 
@@ -27,19 +27,19 @@
 
             <div class="card">
               <div class="card-body">
-                <form action="{{ route('admin.projects.store') }}" method="POST">
+                <form action="{{ route('admin.types.store') }}" method="POST">
                   @csrf
                   <div class="mb-3">
                       <label 
-                          for="title" 
+                          for="name" 
                           class="form-label">
                           <span class="text-danger">*</span>
-                          Titolo</label>
+                          Nome</label>
                       <input 
                           type="text" 
-                          class="form-control @error('title') is-invalid @enderror" 
-                          id="title" name="title"
-                          value="{{ old('title') }}"
+                          class="form-control @error('name') is-invalid @enderror" 
+                          id="name" name="name"
+                          value="{{ old('name') }}"
                           minlength="3"
                           maxlength="64"
                           placeholder="Inserisci il titolo..." 
@@ -62,38 +62,6 @@
                           maxlength="4096"
                           placeholder="Inserisci la descrizone" 
                           required>
-                    </div>
-  
-                    <div class="mb-3">
-                      <label 
-                          for="image" 
-                          class="form-label">Immagine</label>
-                      <input 
-                          type="text" 
-                          class="form-control @error('image') is-invalid @enderror" 
-                          id="image" 
-                          name="image"
-                          value="{{ old('image') }}"
-                          minlength="5"
-                          maxlength="2048"
-                          placeholder="Inserisci il link del immagine">
-                    </div>
-  
-                    <div class="mb-3">
-                      <label 
-                          for="category" 
-                          class="form-label">
-                          <span class="text-danger">*</span>
-                          Categoria</label>
-                      <input 
-                          type="text" 
-                          class="form-control" 
-                          id="category" 
-                          name="category"
-                          value="{{ old('category') }}"
-                          minlength="2"
-                          maxlength="64"
-                          placeholder="Inserisci il link del immagine">
                     </div>
   
                     <div>
